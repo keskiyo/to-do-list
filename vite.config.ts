@@ -6,7 +6,7 @@ import autoprefixer from 'autoprefixer'
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	base: '/To-do-List/',
+	base: '/to-do-list/',
 	css: {
 		postcss: {
 			plugins: [tailwindcss(), autoprefixer()],
