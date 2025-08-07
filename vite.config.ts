@@ -1,10 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
+	base: '/To-do-List/',
 	css: {
-		postcss: './postcss.config.сjs',
+		postcss: {
+			plugins: [tailwindcss(), autoprefixer()],
+		},
+	},
+	build: {
+		outDir: 'dist',
+		emptyOutDir: true,
 	},
 })

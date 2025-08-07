@@ -1,7 +1,3 @@
-//
-// Сделать чтобы создавало с 0 Target с который можно сразу удалять или отмечать что комплит ( или сделать пометку что при 1 запуске нужно создать новый Target)
-//
-
 import React, { useReducer, useState, useEffect, useRef } from 'react'
 import type { TodoList, Task } from '../types/types'
 import {
