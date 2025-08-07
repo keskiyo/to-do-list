@@ -3,6 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"homepage": "https://keskiyo.github.io/to-do-list/",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
@@ -10,6 +11,7 @@
 		"preview": "vite preview",
 		"start": "vite",
 		"test": "jest",
+		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
