@@ -1,4 +1,8 @@
-import React, { useReducer, useState } from 'react'
+//
+// Сделать чтобы создавало с 0 Target с который можно сразу удалять или отмечать что комплит ( или сделать пометку что при 1 запуске нужно создать новый Target)
+//
+
+import React, { useReducer, useState, useEffect, useRef } from 'react'
 import type { TodoList, Task } from '../types/types'
 import {
 	todoReducer,
@@ -11,10 +15,8 @@ import '../style/style.css'
 const initialState: TodoList[] = [
 	{
 		id: '1',
-		task: 'My First Todo List',
-		listToDo: [
-			{ id: '1', name: 'Learn React', verified: false, createdAt: Date.now() },
-		],
+		task: 'Create First Target',
+		listToDo: [],
 	},
 ]
 
@@ -27,10 +29,25 @@ export const MainPage = () => {
 		'all' | 'active' | 'completed'
 	>('all')
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
-	const [currentListId, setCurrentListId] = useState(
-		// Безопасное получение ID первого списка
-		state[0]?.id || initialState[0].id
-	)
+
+	const [currentListId, setCurrentListId] = useState(state[0]?.id || '1')
+
+	useEffect(() => {
+		if (state.length > 0 && !currentListId) {
+			setCurrentListId(state[0].id)
+		}
+	}, [state, currentListId])
+
+	const didRun = useRef(false)
+
+	useEffect(() => {
+		if (didRun.current) return
+		didRun.current = true
+
+		if (!loadFromLocalStorage() || loadFromLocalStorage().length === 0) {
+			dispatch({ type: 'ADD_LIST', listName: 'My First Todo List' })
+		}
+	}, [])
 
 	const handleAddTask = (
 		e: React.FormEvent<HTMLFormElement>,
