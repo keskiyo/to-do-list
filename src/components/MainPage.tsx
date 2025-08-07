@@ -105,7 +105,7 @@ export const MainPage = () => {
 								>
 									<button
 										type='submit'
-										className='hover:bg-gray-200 dark:hover:bg-gray-600 transition cursor-pointer border border-solid rounded p-[5px]'
+										className='hover:bg-gray-200 dark:text-white dark:hover:bg-gray-600 transition cursor-pointer border border-solid rounded p-[5px]'
 									>
 										Add Target
 									</button>
@@ -113,7 +113,7 @@ export const MainPage = () => {
 										name='TargetInput'
 										type='text'
 										placeholder='Type Here'
-										className='flex-1 dark:bg-gray-200 dark:text-white'
+										className='flex-1 dark:bg-gray-500 dark:text-white'
 									/>
 								</form>
 							</div>
