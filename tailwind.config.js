@@ -1,8 +1,6 @@
 module.exports = {
-	content: [
-		'./index.html',
-		'./src/**/*.{js,ts,jsx,tsx}', // Пути к вашим файлам
-	],
+	darkMode: 'class',
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {},
 	},
